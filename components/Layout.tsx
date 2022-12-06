@@ -1,17 +1,15 @@
-import TopBar from '../components/TopBar'
-import Navbar from '../components/Navbar';
-import type { AppProps } from 'next/app'
+import Navbar from "../components/Navbar";
+import type { ReactNode } from "react";
+import TopBar from "../components/TopBar";
 
-const Layout = ({ children }: AppProps) => {
+const Layout = ({ children }: { children: ReactNode }) => {
     return (
-        <div className="bg-body">
+        <div>
             <TopBar />
             <Navbar />
-            { children }
+            {children}
         </div>
-    )
-}
-
-
+    );
+};
 
 export default Layout;

@@ -1,36 +1,50 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 const Navbar = () => {
     return (
-        <nav className="w-full bg-white h-48 shadow">
-            <div className="w-full h-1/2 shadow px-[5%] pt-4">
-                <div className="flex flex-row mb-8 justify-self-center">
-                    <Image src="/NCDMB LOGO.png" width={65} height={65} alt="" /> 
+        <nav className="h-48 w-full bg-white shadow">
+            <div className="h-1/2 w-full px-[5%] pt-4 shadow">
+                <div className="mb-8 flex flex-row justify-self-center">
+                    <Image src="/NCDMB LOGO.png" width={65} height={65} alt="" />
                     <div className="ml-2 mt-1 mr-6">
-                        <p className="text-black font-['Mulish'] font-bold text-xl">E-MARKET</p>
-                        <p className="text-gray leading-3 font-['Mulish'] tracking-widest">P &nbsp;L &nbsp;A &nbsp;C &nbsp;E</p>
+                        <p className="font-['Mulish'] text-xl font-bold text-black">E-MARKET</p>
+                        <p className="font-['Mulish'] leading-3 tracking-widest text-gray">
+                            P &nbsp;L &nbsp;A &nbsp;C &nbsp;E
+                        </p>
                     </div>
 
                     {/* Search */}
-                    <div className="flex flex-row h-12 w-[80%] mt-3 mr-5">
-                        <div className="bg-green text-white text-base font-thin rounded-l-lg w-[10%] min-w-[90px] h-full font-['Mulish'] pt-3 pl-5 relative">
+                    <div className="mt-3 mr-5 flex h-12 w-[80%] flex-row">
+                        <div className="relative h-full w-[10%] min-w-[90px] rounded-l-lg bg-green pt-3 pl-5 font-['Mulish'] text-base font-thin text-white">
                             Search
-                            <Image src="/icons/search.png" width={20} height={20} alt="" className="absolute right-[10%] top-4" /> 
+                            <Image
+                                src="/icons/search.png"
+                                width={20}
+                                height={20}
+                                alt=""
+                                className="absolute right-[10%] top-4"
+                            />
                         </div>
-                        <div className="h-full w-[90%] relative">
-                            <input type="text" className="h-full w-full border border-green rounded-r-lg" />
-                            <Image src="/icons/camera.png" width={30} height={30} alt="" className="absolute right-5 top-3" /> 
+                        <div className="relative h-full w-[90%]">
+                            <input type="text" className="h-full w-full rounded-r-lg border border-green" />
+                            <Image
+                                src="/icons/camera.png"
+                                width={30}
+                                height={30}
+                                alt=""
+                                className="absolute right-5 top-3"
+                            />
                         </div>
                     </div>
                     {/* Login button */}
-                    <div className="flex flex-row w-[6%] h-12 mt-3 bg-green rounded-lg pt-3 pr-4">
+                    <div className="mt-3 flex h-12 w-[6%] min-w-[90px] flex-row rounded-lg bg-green pt-3 pr-4">
                         <Image src="/icons/user2.png" width={30} height={20.42} alt="" className="ml-2 mb-1" />
-                        <p className=" text-white font-['Mulish'] text-base ml-2">Login</p>
+                        <p className=" ml-2 font-['Mulish'] text-base text-white">Login</p>
                     </div>
                 </div>
             </div>
 
-            <div className="w-full h-1/2 px-[5%] pt-8 flex flex-row justify-between">
+            <div className="flex h-1/2 w-full flex-row justify-between px-[5%] pt-8">
                 <div className="flex flex-row font-['Mulish']">
                     <p className="mr-12">HOME</p>
                     <p className="mr-12">CATEGORIES</p>
@@ -39,18 +53,18 @@ const Navbar = () => {
                     <p className="mr-12">COMPANIES</p>
                 </div>
                 <div className="flex flex-row">
-                    <div className="flex flex-row justify-between rounded-lg border-2 border-solid border-gray3 w-28 h-2/3 pt-1 px-1 mr-2">
+                    <div className="mr-2 flex h-2/3 w-28 flex-row justify-between rounded-lg border-2 border-solid border-gray3 px-1 pt-1">
                         <p className="text-gray3">English</p>
-                        <img src="/icons/arrow-down.png" width={"15px"} height={"10px"} className="h-[30%] mt-2 mr-1" />
+                        <img src="/icons/arrow-down.png" width={"15px"} height={"10px"} className="mt-2 mr-1 h-[30%]" />
                     </div>
-                    <div className="flex flex-row justify-between rounded-lg border-2 border-solid border-gray3 w-28 h-2/3 pt-1 px-1">
+                    <div className="flex h-2/3 w-28 flex-row justify-between rounded-lg border-2 border-solid border-gray3 px-1 pt-1">
                         <p className="text-gray3">NGN</p>
-                        <img src="/icons/arrow-down.png" width={"15px"} height={"10px"} className="h-[30%] mt-2 mr-1" />
+                        <img src="/icons/arrow-down.png" width={"15px"} height={"10px"} className="mt-2 mr-1 h-[30%]" />
                     </div>
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;
