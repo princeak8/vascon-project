@@ -1,13 +1,14 @@
 import Image from "next/image";
 import { ProductStatus } from "../enums";
 import { Product } from "../types";
+import PrimaryButton from "./PrimaryButton";
 
 interface Props {
     product: Product;
 }
 
 export default function ProductCard({ product: { imageRef, status, name, price, company } }: Props) {
-    let statusClass = "bg-green";
+    let statusClass = "bg-primary-green";
     if (status === ProductStatus.Used) {
         statusClass = "bg-[#f00]";
     } else if (status === ProductStatus.Refurbished) {
@@ -30,11 +31,11 @@ export default function ProductCard({ product: { imageRef, status, name, price, 
                     {status}
                 </div>
             </div>
-            <div className="flex flex-col items-center gap-2 rounded-lg border-[1.2px] border-green px-5 py-4 text-center">
+            <div className="flex flex-col items-center gap-3 rounded-lg border-[1.2px] border-primary-green px-5 py-4 text-center">
                 <h3 className="text-lg font-bold leading-6 text-[#4a4a4a]">{name}</h3>
-                <p className="text-lg font-medium leading-6 text-green">{price}</p>
+                <p className="text-lg font-medium leading-6 text-primary-green">{price}</p>
                 <small className="text-base font-normal leading-5 text-[#4a4a4a]">{company}</small>
-                <button className="rounded-md border border-green bg-green px-20 py-4 text-white">View Details</button>
+                <PrimaryButton className="px-20 py-4">View Details</PrimaryButton>
             </div>
         </div>
     );

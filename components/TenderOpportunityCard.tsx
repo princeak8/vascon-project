@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { TenderOpportunity } from "../types";
+import PrimaryButton from "./PrimaryButton";
 
 interface Props {
     opportunity: TenderOpportunity;
@@ -16,15 +17,13 @@ export default function TenderOpportunityCard({
                     <h3 className="text-xl font-bold leading-7">{heading}</h3>
                     <div className="text-sm font-light text-[#9D9D9D]">
                         <p>
-                            <span className="text-green">Tender Opportunity:</span> <span>{description}</span>
+                            <span className="text-primary-green">Tender Opportunity:</span> <span>{description}</span>
                         </p>
                         <p>Tender Ref No: {refNumber}</p>
                     </div>
                 </div>
             </div>
-            <button className="w-[192px] rounded-md border border-green bg-green px-2 py-4 text-sm font-medium text-white">
-                View Details
-            </button>
+            <PrimaryButton className="w-[192px] px-2 py-4">View Details</PrimaryButton>
         </div>
     );
 }

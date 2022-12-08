@@ -35,4 +35,19 @@ export interface range {
     step: number;
 }
 
+export interface ServiceItem {
+    imageSrc: string;
+    name: string;
+    description: string;
+    company: string;
+}
+
 export type filtersInterface = Filter[];
+
+export interface NewsItem {
+    imgSrc: string;
+    heading: string;
+    summary: string;
+    publicationDate: string;
+    readTime: string;
+}
