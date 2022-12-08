@@ -10,13 +10,17 @@ const Navbar = () => {
         setState({ ...state, dropDownOpen: !state.dropDownOpen });
     }
 
+    function closeDropDown() {
+        setState({ ...state, dropDownOpen: false });
+    }
+
     // let dropDownClass =
 
     return (
         <nav className="h-48 w-full bg-white shadow">
             <div className="h-1/2 w-full px-[5%] pt-4 shadow">
                 <div className="mb-8 flex flex-row justify-self-center">
-                    <Link href="/" className="flex justify-between gap-2">
+                    <Link href="/" className="flex justify-between gap-2" onClick={closeDropDown}>
                         <Image src="/NCDMB LOGO.png" width={65} height={65} alt="" />
                         <div className="mt-1 mr-6">
                             <p className="font-['Mulish'] text-xl font-bold text-black">E-MARKET</p>
@@ -62,9 +66,11 @@ const Navbar = () => {
 
             <div className="relative flex h-1/2 w-full flex-row justify-between px-[5%] pt-8">
                 <div className="flex flex-row font-['Mulish']">
-                    <p className="mr-12">HOME</p>
+                    <Link href="/" className="cursor-pointer" onClick={closeDropDown}>
+                        <p className="mr-12">HOME</p>
+                    </Link>
                     <p
-                        className="mr-12 flex flex-row"
+                        className="mr-12 flex cursor-pointer flex-row"
                         id="category-button"
                         aria-expanded="true"
                         aria-haspopup="true"
@@ -86,7 +92,7 @@ const Navbar = () => {
                         </svg>
                     </p>
                     <p className="mr-12">ADVERTS</p>
-                    <Link href="/products" className="mr-12">
+                    <Link href="/products" className="mr-12" onClick={closeDropDown}>
                         PRODUCT AND SERVICES
                     </Link>
                     <p className="mr-12">COMPANIES</p>
