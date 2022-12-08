@@ -1,8 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useState } from "react";
 import DownArrowImage from "./DownArrowImage";
 
 const Navbar = () => {
+    const [state, setState] = useState({ dropDownOpen: false });
+
+    function toggleDropDown() {
+        setState({ ...state, dropDownOpen: !state.dropDownOpen });
+    }
+
+    // let dropDownClass =
+
     return (
         <nav className="h-48 w-full bg-white shadow">
             <div className="h-1/2 w-full px-[5%] pt-4 shadow">
@@ -19,7 +28,7 @@ const Navbar = () => {
 
                     {/* Search */}
                     <div className="mt-3 mr-5 flex h-12 w-[80%] flex-row">
-                        <div className="bg-primary-green relative h-full w-[10%] min-w-[90px] rounded-l-lg pt-3 pl-5 font-['Mulish'] text-base font-thin text-white">
+                        <div className="relative h-full w-[10%] min-w-[90px] rounded-l-lg bg-primary-green pt-3 pl-5 font-['Mulish'] text-base font-thin text-white">
                             Search
                             <Image
                                 src="/icons/search.png"
@@ -30,7 +39,7 @@ const Navbar = () => {
                             />
                         </div>
                         <div className="relative h-full w-[90%]">
-                            <input type="text" className="border-primary-green h-full w-full rounded-r-lg border" />
+                            <input type="text" className="h-full w-full rounded-r-lg border border-primary-green" />
                             <Image
                                 src="/icons/camera.png"
                                 width={30}
@@ -43,7 +52,7 @@ const Navbar = () => {
                     {/* Login button */}
                     <Link
                         href="/login"
-                        className="bg-primary-green mt-3 flex h-12 w-[6%] min-w-[90px] flex-row rounded-lg pt-3 pr-4"
+                        className="mt-3 flex h-12 w-[6%] min-w-[90px] flex-row rounded-lg bg-primary-green pt-3 pr-4"
                     >
                         <Image src="/icons/user2.png" width={30} height={20.42} alt="" className="ml-2 mb-1" />
                         <p className=" ml-2 font-['Mulish'] text-base text-white">Login</p>
@@ -54,7 +63,13 @@ const Navbar = () => {
             <div className="relative flex h-1/2 w-full flex-row justify-between px-[5%] pt-8">
                 <div className="flex flex-row font-['Mulish']">
                     <p className="mr-12">HOME</p>
-                    <p className="mr-12 flex flex-row" id="category-button" aria-expanded="true" aria-haspopup="true">
+                    <p
+                        className="mr-12 flex flex-row"
+                        id="category-button"
+                        aria-expanded="true"
+                        aria-haspopup="true"
+                        onClick={toggleDropDown}
+                    >
                         CATEGORIES
                         <svg
                             className="-mr-1 ml-2 h-5 w-5"
@@ -87,7 +102,35 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* Drop down here */}
+                <div
+                    id="categories-menu"
+                    className={
+                        state.dropDownOpen
+                            ? "absolute left-[10%] top-[108%] h-64 w-[30%] rounded-lg bg-white shadow focus:outline-none"
+                            : "absolute left-[10%] top-[108%] hidden h-64 w-[30%] rounded-lg bg-white shadow focus:outline-none"
+                    }
+                    aria-orientation="vertical"
+                    aria-labelledby="category-button"
+                >
+                    <div className="flex flex-row pt-4 pl-4 font-['Mulish'] text-base font-normal text-gray3">
+                        <div className="mr-[25%]">
+                            <p className="mb-2">Rigs</p>
+                            <p className="mb-2">Pumps</p>
+                            <p className="mb-2">Coiled Tubing</p>
+                            <p className="mb-2">Downhole Tools</p>
+                            <p className="mb-2">Casting</p>
+                            <p className="mb-2">Drill Bits</p>
+                        </div>
+                        <div className="mr-5">
+                            <p className="mb-2">Cementing</p>
+                            <p className="mb-2">Valves</p>
+                            <p className="mb-2">Pressure Control Equipments</p>
+                            <p className="mb-2">Lift Equipment</p>
+                            <p className="mb-2">Completions</p>
+                            <p className="mb-2">Production</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </nav>
     );
